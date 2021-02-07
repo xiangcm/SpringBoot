@@ -1,8 +1,11 @@
 package com.xiangcm.springboot.bean;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
+import org.springframework.validation.annotation.Validated;
 
+import javax.validation.constraints.Email;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -17,9 +20,12 @@ import java.util.Map;
  * @Param
  * @return
 **/
+@PropertySource(value = {"classpath:person.properties"})
 @Component
 @ConfigurationProperties(prefix = "person")
+//@Validated
 public class Person {
+//    @Email
     private String lastName;
     private Integer age;
     private Boolean boss;
